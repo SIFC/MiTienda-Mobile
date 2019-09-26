@@ -12,7 +12,8 @@ import {  Header, Title,  Button, Left,Body, Icon,} from 'native-base';
             </Button>
         </Left>
         <Body>
-            <Title style={{alignSelf: 'center',}}>Mi Tienda</Title>
+        {/* style={{alignSelf: 'center',}} */}
+            <Title >Mi Tienda</Title>
         </Body>
         </Header >
         );

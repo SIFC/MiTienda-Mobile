@@ -36,8 +36,12 @@ import { Container, Item, Input, Header, Button,
     import * as Font from 'expo-font';
     import Constants from 'expo-constants';
     import { Ionicons } from '@expo/vector-icons';
+import { StyleSheet, Platform, View, SafeAreaView,  } from 'react-native';
 
-import { StyleSheet, Platform, View,  } from 'react-native';
+function Separator() {
+  return <View style={styles.separator} />;
+}
+
 export default class Home extends Component {
   async componentDidMount() {
     await Font.loadAsync({
@@ -56,36 +60,36 @@ export default class Home extends Component {
     _drawer: any;
     render() {
         return (
-           
-            <Content>
-            {/* <View style={styles.container}></View> */}
+         <SafeAreaView style={styles.container}>
+            <Separator />
+            <View >
             <Grid>
               <Row>
-              <Col >
-                  <Button full  primary >
+              <Col style={{ backgroundColor: '#635DB7', height: 200 }}>
+                  <Button full  primary  style={{height:"100%" }}>
                     <Icon name='cube'/>
                     <Text >Productos</Text> 
                   </Button></Col>
-                <Col >
-                  <Button full  success >
+                <Col style={{ backgroundColor: '#635DB7', height: 200 }}>
+                  <Button full  success style={{height:"100%"  }}>
                     <Icon name='cart'/>
                     <Text>Ventas</Text>  
                   </Button></Col>
                   </Row>
-                  <Row><Col>
-                  <Button  full  warning >
+                  <Row><Col style={{ backgroundColor: '#635DB7', height: 200 }}>
+                  <Button  full  warning style={{height:"100%" }}>
                     <Icon name='person'/>
                     <Text>Clientes</Text> 
                   </Button></Col>
-                  <Col >
-                  <Button  full  light >
+                  <Col style={{ backgroundColor: '#635DB7', height: 200 }}>
+                  <Button  full  light style={{height:"100%" }}>
                     <Icon name='cog' />
                     <Text>Perfil</Text>  
                   </Button></Col></Row>
               </Grid>
-             
-            </Content>
-
+              </View>
+              <Separator />
+              </SafeAreaView>
         );
     }
 }
@@ -93,9 +97,26 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
       container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
+        backgroundColor: '#ffff',
+        // alignItems: 'center',
         justifyContent: 'center',
+        // height: "100%",
+        //  marginVertical: 16,
+         marginHorizontal: 16,
+        marginTop: "10%",
+        // paddingHorizontal: 10
+         
       },
+      title: {
+        textAlign: 'center',
+        marginVertical: 8,
+      },
+     
+      separator: {
+        marginVertical: 8,
+        borderBottomColor: '#737373',
+        borderBottomWidth: StyleSheet.hairlineWidth,
+      },
+      
 });
     
