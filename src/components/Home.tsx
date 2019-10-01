@@ -118,18 +118,36 @@ class DetailsScreen extends React.Component <Props>{
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Details Screen</Text>
         <Button
-          
+          onPress={() => this.props.navigation.navigate('Details')}
+          // onPress={() => this.props.navigation.push('Details')}
+        >
+           <Text>Details</Text>  
+        </Button>
+        <Button
+        onPress={() => this.props.navigation.navigate('Home')}
+          // onPress={() => this.props.navigation.navigate('Home')}
+        >
+           <Text>Home</Text>  
+        </Button>
+        <Button
+        onPress={() => this.props.navigation.navigate()}
+          // onPress={() => this.props.navigation.goBack()}
+        >
+           <Text>sfsf</Text>  
+        </Button>
+
+        {/* <Button
+          title="Go to Details... again"
           onPress={() => this.props.navigation.push('Details')}
-        > <Text>Details</Text></Button>
+        />
         <Button
-        
+          title="Go to Home"
           onPress={() => this.props.navigation.navigate('Home')}
-        > <Text>Home</Text></Button>
+        />
         <Button
+          title="Go back"
           onPress={() => this.props.navigation.goBack()}
-        > <Text>dgg</Text></Button>
-
-
+        /> */}
       </View>
     );
   }
