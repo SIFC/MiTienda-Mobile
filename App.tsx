@@ -1,12 +1,15 @@
 
-import React, { Component } from 'react';
+import React, { Component, constructor } from 'react';
 import Home from './src/components/Home'
 import HeaderApp from './src/components/HeaderApp'
 import FooterApp from './src/components/FooterApp'
 import { Container } from 'native-base';
 import { Constants } from 'expo';
 
+
  export default class App extends Component {
+
+ 
   render() {
     return (
       <Container>
@@ -20,6 +23,8 @@ import { Constants } from 'expo';
 }
  
 }
+
+
 
 
 

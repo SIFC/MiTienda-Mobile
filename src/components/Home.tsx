@@ -37,12 +37,25 @@ import { Container, Item, Input, Header, Button,
     import Constants from 'expo-constants';
     import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Platform, View, SafeAreaView,  } from 'react-native';
-
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+interface Props {
+  navigation: any
+}
 function Separator() {
   return <View style={styles.separator} />;
 }
 
 export default class Home extends Component {
+
+  static navigationOptions = {
+    title : "Home"
+  }
+
+  constructor(props) {
+    super(props);
+  }
+
   async componentDidMount() {
     await Font.loadAsync({
       Roboto: require('native-base/Fonts/Roboto.ttf'),
@@ -60,15 +73,18 @@ export default class Home extends Component {
     _drawer: any;
     render() {
         return (
+       
+
          <SafeAreaView style={styles.container}>
             <Separator />
             <View >
             <Grid>
               <Row>
               <Col style={{ backgroundColor: '#635DB7', height: 200 }}>
-                  <Button full  primary  style={{height:"100%" }}>
+                  <Button full  primary  style={{height:"100%" }} onPress={()=> this.props.navigation.navigate("Detail")}>
                     <Icon name='cube'/>
                     <Text >Productos</Text> 
+                  
                   </Button></Col>
                 <Col style={{ backgroundColor: '#635DB7', height: 200 }}>
                   <Button full  success style={{height:"100%"  }}>
@@ -119,4 +135,38 @@ const styles = StyleSheet.create({
       },
       
 });
-    
+
+class DetailScreen extends React.Component {
+
+  // create the title for the screen
+  static navigationOptions = {
+    title : "Details"
+  }
+
+  // create constructor to get access to props
+  constructor(props) {
+    super(props);
+  }
+
+
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Detail Screen Stack Navigation Sample</Text>
+      </View>
+    );
+  }
+}
+
+// newFunction();
+// function newFunction() {
+//   export default createStackNavigator({
+//     Home: {
+//       screen: HomeScreen,
+//     },
+//     Detail: {
+//       screen: DetailScreen,
+//     },
+//   });
+// }
+
