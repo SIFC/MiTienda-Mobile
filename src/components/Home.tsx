@@ -26,66 +26,40 @@
 
 // --------------------------------------------------------------------- Building
 import React, { Component } from 'react';
- 
-
-
-import { Container, Item, Input, Header, Button, 
+import { Container, Item, Input, Header, 
     Title, Content, Footer, FooterTab, 
     Left, Right, Body, Icon, CardItem, Toast, 
-    Spinner, H1, H2, H3, Drawer, Grid, Col, Row , Text} from 'native-base';
-    import * as Font from 'expo-font';
-    import Constants from 'expo-constants';
-    import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet, Platform, View, SafeAreaView,  } from 'react-native';
+    Spinner, H1, H2, H3, Drawer, Grid, Col, Row , Text, Separator} from 'native-base';
+import * as Font from 'expo-font';
+import Constants from 'expo-constants';
+import { Ionicons } from '@expo/vector-icons';
+import { StyleSheet, Platform, View, SafeAreaView, Button } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+
+
 interface Props {
   navigation: any
 }
-function Separator() {
-  return <View style={styles.separator} />;
-}
 
-export default class Home extends Component {
-
-  static navigationOptions = {
-    title : "Home"
-  }
-
-  constructor(props) {
-    super(props);
-  }
-
-  async componentDidMount() {
-    await Font.loadAsync({
-      Roboto: require('native-base/Fonts/Roboto.ttf'),
-      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
-      ...Ionicons.font,
-    });
-    this.setState({ isReady: true });
-  }
-    closeControlPanel = () => {
-        this._drawer.close()
-      };
-      openControlPanel = () => {
-        this._drawer.open()
-      };
-    _drawer: any;
-    render() {
-        return (
-       
-
-         <SafeAreaView style={styles.container}>
+class Home extends React.Component <Props>{
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
             <Separator />
             <View >
             <Grid>
               <Row>
               <Col style={{ backgroundColor: '#635DB7', height: 200 }}>
-                  <Button full  primary  style={{height:"100%" }} onPress={()=> this.props.navigation.navigate("Detail")}>
+              <Button
+          title="Go to Details"
+          onPress={() => this.props.navigation.navigate('Details')}
+        />
+                  {/* <Button full  primary  style={{height:"100%" }} onPress={()=> this.props.navigation.navigate("Detail")}>
                     <Icon name='cube'/>
                     <Text >Productos</Text> 
                   
-                  </Button></Col>
+                  /></Button>Button></Col>
                 <Col style={{ backgroundColor: '#635DB7', height: 200 }}>
                   <Button full  success style={{height:"100%"  }}>
                     <Icon name='cart'/>
@@ -101,72 +75,91 @@ export default class Home extends Component {
                   <Button  full  light style={{height:"100%" }}>
                     <Icon name='cog' />
                     <Text>Perfil</Text>  
-                  </Button></Col></Row>
+                  </Button> */}
+                  </Col></Row>
               </Grid>
               </View>
               <Separator />
               </SafeAreaView>
-        );
-    }
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-      container: {
-        flex: 1,
-        backgroundColor: '#ffff',
-        // alignItems: 'center',
-        justifyContent: 'center',
-        // height: "100%",
-        //  marginVertical: 16,
-         marginHorizontal: 16,
-        marginTop: "10%",
-        // paddingHorizontal: 10
-         
-      },
-      title: {
-        textAlign: 'center',
-        marginVertical: 8,
-      },
+  container: {
+    flex: 1,
+    backgroundColor: '#ffff',
+    // alignItems: 'center',
+    justifyContent: 'center',
+    // height: "100%",
+    //  marginVertical: 16,
+     marginHorizontal: 16,
+    marginTop: "10%",
+    // paddingHorizontal: 10
      
-      separator: {
-        marginVertical: 8,
-        borderBottomColor: '#737373',
-        borderBottomWidth: StyleSheet.hairlineWidth,
-      },
-      
+  },
+  title: {
+    textAlign: 'center',
+    marginVertical: 8,
+  },
+ 
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: '#737373',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  
 });
 
-class DetailScreen extends React.Component {
 
-  // create the title for the screen
-  static navigationOptions = {
-    title : "Details"
-  }
-
-  // create constructor to get access to props
-  constructor(props) {
-    super(props);
-  }
-
-
+class DetailsScreen extends React.Component <Props>{
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Detail Screen Stack Navigation Sample</Text>
+        <Text>Details Screen</Text>
+        {/* <Button
+          
+          onPress={() => this.props.navigation.push('Details')}
+        ></Button>
+        <Button
+        
+          onPress={() => this.props.navigation.navigate('Home')}
+        ></Button>
+        <Button
+          onPress={() => this.props.navigation.goBack()}
+        ></Button> */}
+
+<Button
+          title="Go to Details... again"
+          onPress={() => this.props.navigation.push('Details')}
+        />
+        <Button
+          title="Go to Home"
+          onPress={() => this.props.navigation.navigate('Home')}
+        />
+        <Button
+          title="Go back"
+          onPress={() => this.props.navigation.goBack()}
+        />
       </View>
     );
   }
 }
 
-// newFunction();
-// function newFunction() {
-//   export default createStackNavigator({
-//     Home: {
-//       screen: HomeScreen,
-//     },
-//     Detail: {
-//       screen: DetailScreen,
-//     },
-//   });
-// }
+const RootStack = createStackNavigator(
+  {
+    Home: Home,
+    Details: DetailsScreen,
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
 
+const AppContainer = createAppContainer(RootStack);
+
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}
