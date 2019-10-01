@@ -29,11 +29,11 @@ import React, { Component } from 'react';
 import { Container, Item, Input, Header, 
     Title, Content, Footer, FooterTab, 
     Left, Right, Body, Icon, CardItem, Toast, 
-    Spinner, H1, H2, H3, Drawer, Grid, Col, Row , Text, Separator} from 'native-base';
+    Spinner, H1, H2, H3, Drawer, Grid, Col, Row , Text, Separator, Button} from 'native-base';
 import * as Font from 'expo-font';
 import Constants from 'expo-constants';
 import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet, Platform, View, SafeAreaView, Button } from 'react-native';
+import { StyleSheet, Platform, View, SafeAreaView } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -51,15 +51,15 @@ class Home extends React.Component <Props>{
             <Grid>
               <Row>
               <Col style={{ backgroundColor: '#635DB7', height: 200 }}>
-              <Button
+              {/* <Button
           title="Go to Details"
           onPress={() => this.props.navigation.navigate('Details')}
-        />
-                  {/* <Button full  primary  style={{height:"100%" }} onPress={()=> this.props.navigation.navigate("Detail")}>
+        /> */}
+                  <Button full  primary  style={{height:"100%" }}  onPress={() => this.props.navigation.navigate('Details')}>
                     <Icon name='cube'/>
                     <Text >Productos</Text> 
                   
-                  /></Button>Button></Col>
+                  </Button></Col>
                 <Col style={{ backgroundColor: '#635DB7', height: 200 }}>
                   <Button full  success style={{height:"100%"  }}>
                     <Icon name='cart'/>
@@ -75,7 +75,7 @@ class Home extends React.Component <Props>{
                   <Button  full  light style={{height:"100%" }}>
                     <Icon name='cog' />
                     <Text>Perfil</Text>  
-                  </Button> */}
+                  </Button>
                   </Col></Row>
               </Grid>
               </View>
@@ -117,30 +117,19 @@ class DetailsScreen extends React.Component <Props>{
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Details Screen</Text>
-        {/* <Button
+        <Button
           
           onPress={() => this.props.navigation.push('Details')}
-        ></Button>
+        > <Text>Details</Text></Button>
         <Button
         
           onPress={() => this.props.navigation.navigate('Home')}
-        ></Button>
+        > <Text>Home</Text></Button>
         <Button
           onPress={() => this.props.navigation.goBack()}
-        ></Button> */}
+        > <Text>dgg</Text></Button>
 
-<Button
-          title="Go to Details... again"
-          onPress={() => this.props.navigation.push('Details')}
-        />
-        <Button
-          title="Go to Home"
-          onPress={() => this.props.navigation.navigate('Home')}
-        />
-        <Button
-          title="Go back"
-          onPress={() => this.props.navigation.goBack()}
-        />
+
       </View>
     );
   }
