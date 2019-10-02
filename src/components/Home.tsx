@@ -36,6 +36,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Platform, View, SafeAreaView } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import HeaderApp from './HeaderApp';
 
 
 interface Props {
@@ -45,7 +46,9 @@ interface Props {
 class Home extends React.Component <Props>{
   render() {
     return (
+      
       <SafeAreaView style={styles.container}>
+       
             <Separator />
             <View >
             <Grid>
@@ -55,7 +58,7 @@ class Home extends React.Component <Props>{
           title="Go to Details"
           onPress={() => this.props.navigation.navigate('Details')}
         /> */}
-                  <Button full  primary  style={{height:"100%" }}  onPress={() => this.props.navigation.navigate('Details')}>
+                  <Button full  primary  style={{height:"100%" }}  onPress={() => this.props.navigation.navigate('Dell')}>
                     <Icon name='cube'/>
                     <Text >Productos</Text> 
                   
@@ -74,7 +77,7 @@ class Home extends React.Component <Props>{
                   <Col style={{ backgroundColor: '#635DB7', height: 200 }}>
                   <Button  full  light style={{height:"100%" }}>
                     <Icon name='cog' />
-                    <Text>Perfil</Text>  
+                    <Text>Tienda</Text>  
                   </Button>
                   </Col></Row>
               </Grid>
@@ -156,7 +159,7 @@ class DetailsScreen extends React.Component <Props>{
 const RootStack = createStackNavigator(
   {
     Home: Home,
-    Details: DetailsScreen,
+    Dell: DetailsScreen,
   },
   {
     initialRouteName: 'Home',

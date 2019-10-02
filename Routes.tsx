@@ -3,11 +3,7 @@ import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-// import Home from './components/Home';
-//import Encuesta from './views/encuesta';
-// import Menu from './views/menu';
-//import Sincro from './views/sincro';
-import Home from '../components/Home';
+import Home from "./src/components/Home";
 
 const Stack = createStackNavigator({
     Home:{screen:Home},

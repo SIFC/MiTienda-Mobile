@@ -8,8 +8,13 @@ import { Constants } from 'expo';
 
 
  export default class App extends Component {
-
- 
+  static navigationOptions = {
+    title : "Home"
+  }
+  
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <Container>
