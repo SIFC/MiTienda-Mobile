@@ -5,11 +5,11 @@ interface Props {
     navigation: any
   }
   
-export default class ProductoForm extends React.Component <Props>{
+export default class ProductosList extends React.Component <Props>{
       render() {
         return (
             <View style={styles.container}>
-                  <Text> Formulario</Text>
+                  <Text> Lista Productos</Text>
             </View>
         );
       }

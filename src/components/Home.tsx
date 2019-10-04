@@ -37,6 +37,11 @@ import { StyleSheet, Platform, View, SafeAreaView } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HeaderApp from './HeaderApp';
+import ProductoForm from './Productos/Producto-Form';
+import VentasList from './Ventas/Ventas-List';
+import ClientesList from './Clientes/Clientes-List';
+import TiendaPerfil from './Tienda/Tienda-Perfil';
+import ProductosList from './Productos/Productos-List';
 
 
 interface Props {
@@ -58,24 +63,24 @@ class Home extends React.Component <Props>{
           title="Go to Details"
           onPress={() => this.props.navigation.navigate('Details')}
         /> */}
-                  <Button full  primary  style={{height:"100%" }}  onPress={() => this.props.navigation.navigate('Dell')}>
+                  <Button full  primary  style={{height:"100%" }}  onPress={() => this.props.navigation.navigate('ProductosList')}>
                     <Icon name='cube'/>
                     <Text >Productos</Text> 
                   
                   </Button></Col>
                 <Col style={{ backgroundColor: '#635DB7', height: 200 }}>
-                  <Button full  success style={{height:"100%"  }}>
+                  <Button full  success style={{height:"100%"  }} onPress={() => this.props.navigation.navigate('VentasList')}>
                     <Icon name='cart'/>
                     <Text>Ventas</Text>  
                   </Button></Col>
                   </Row>
                   <Row><Col style={{ backgroundColor: '#635DB7', height: 200 }}>
-                  <Button  full  warning style={{height:"100%" }}>
+                  <Button  full  warning style={{height:"100%" }} onPress={() => this.props.navigation.navigate('ClientesList')}>
                     <Icon name='person'/>
                     <Text>Clientes</Text> 
                   </Button></Col>
                   <Col style={{ backgroundColor: '#635DB7', height: 200 }}>
-                  <Button  full  light style={{height:"100%" }}>
+                  <Button  full  light style={{height:"100%" }} onPress={() => this.props.navigation.navigate('TiendaPerfil')}>
                     <Icon name='cog' />
                     <Text>Tienda</Text>  
                   </Button>
@@ -160,6 +165,10 @@ const RootStack = createStackNavigator(
   {
     Home: Home,
     Dell: DetailsScreen,
+    ProductosList: ProductosList,
+    VentasList: VentasList,
+    ClientesList: ClientesList,
+    TiendaPerfil: TiendaPerfil,
   },
   {
     initialRouteName: 'Home',

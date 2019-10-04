@@ -5,6 +5,7 @@ import HeaderApp from './src/components/HeaderApp'
 import FooterApp from './src/components/FooterApp'
 import { Container } from 'native-base';
 import { Constants } from 'expo';
+import ProductoForm from './src/components/Productos/Producto-Form';
 
 
  export default class App extends Component {
@@ -21,6 +22,7 @@ import { Constants } from 'expo';
         <HeaderApp></HeaderApp>
         {/* ------------------Home --------------------------*/}
         <Home></Home>
+         
           {/* -----------------------------------------------*/}
         <FooterApp></FooterApp>
       </Container>
