@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import {  Header, Title,  Button, Left,Body, Icon, Container,} from 'native-base';
+import {  Header, Title,  Button, Left,Body, Icon, Container,Text} from 'native-base';
 
  export default class HeaderApp extends Component {
   render() {

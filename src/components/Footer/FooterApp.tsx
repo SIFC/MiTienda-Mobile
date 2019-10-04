@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import {Title, Footer, FooterTab, Button } from 'native-base';
+import {Title, Footer, FooterTab, Button, Icon, Text } from 'native-base';
 import Constants from 'expo-constants';
 export default class FooterApp extends Component {
 render() {
@@ -12,6 +12,7 @@ render() {
             </Button>
             </FooterTab>
         </Footer>
+       
         );
     }
 }
